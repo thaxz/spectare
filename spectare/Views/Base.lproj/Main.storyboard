@@ -12,7 +12,7 @@
         <!--Featured-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController title="Featured" id="BYZ-38-t0r" customClass="ViewController" customModule="spectare" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Featured" id="BYZ-38-t0r" customClass="FeaturedViewController" customModule="spectare" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="1292"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -67,7 +67,7 @@
                                                             <inset key="sectionInset" minX="8" minY="0.0" maxX="8" maxY="0.0"/>
                                                         </collectionViewFlowLayout>
                                                         <cells>
-                                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="smu-82-MzP">
+                                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="popularCell" id="smu-82-MzP" customClass="PopularCollectionViewCell" customModule="spectare" customModuleProvider="target">
                                                                 <rect key="frame" x="8" y="0.0" width="200" height="140"/>
                                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Yl5-xF-2zE">
@@ -94,8 +94,16 @@
                                                                         <constraint firstItem="WsI-I2-JRS" firstAttribute="leading" secondItem="Yl5-xF-2zE" secondAttribute="leading" constant="8" id="q66-9l-nNg"/>
                                                                     </constraints>
                                                                 </collectionViewCellContentView>
+                                                                <connections>
+                                                                    <outlet property="ivFilm" destination="rUp-u7-YLo" id="wr7-AP-oYL"/>
+                                                                    <outlet property="lbTitle" destination="WsI-I2-JRS" id="4LF-p6-RNm"/>
+                                                                </connections>
                                                             </collectionViewCell>
                                                         </cells>
+                                                        <connections>
+                                                            <outlet property="dataSource" destination="BYZ-38-t0r" id="VC3-CO-twJ"/>
+                                                            <outlet property="delegate" destination="BYZ-38-t0r" id="Xdq-KT-aFY"/>
+                                                        </connections>
                                                     </collectionView>
                                                 </subviews>
                                             </stackView>
@@ -143,7 +151,7 @@
                                                             <inset key="sectionInset" minX="16" minY="0.0" maxX="16" maxY="0.0"/>
                                                         </collectionViewFlowLayout>
                                                         <cells>
-                                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="TyZ-JY-uzu">
+                                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="nowPlayingCell" id="TyZ-JY-uzu" customClass="NowPlayingCollectionViewCell" customModule="spectare" customModuleProvider="target">
                                                                 <rect key="frame" x="16" y="0.0" width="251" height="114"/>
                                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="pAR-wD-LuM">
@@ -189,8 +197,17 @@
                                                                         <constraint firstItem="qrg-M4-TTU" firstAttribute="leading" secondItem="pAR-wD-LuM" secondAttribute="leading" id="yZ0-t9-OQB"/>
                                                                     </constraints>
                                                                 </collectionViewCellContentView>
+                                                                <connections>
+                                                                    <outlet property="ivFilm" destination="qrg-M4-TTU" id="9lp-AQ-szm"/>
+                                                                    <outlet property="lbDate" destination="dZ8-jk-x60" id="9Nb-fN-iMs"/>
+                                                                    <outlet property="lbTitle" destination="gEc-HE-WJt" id="U1F-ce-4ha"/>
+                                                                </connections>
                                                             </collectionViewCell>
                                                         </cells>
+                                                        <connections>
+                                                            <outlet property="dataSource" destination="BYZ-38-t0r" id="V0m-B6-ZXK"/>
+                                                            <outlet property="delegate" destination="BYZ-38-t0r" id="B8P-m4-wYA"/>
+                                                        </connections>
                                                     </collectionView>
                                                 </subviews>
                                             </stackView>
@@ -235,11 +252,11 @@
                                                             <size key="itemSize" width="200" height="299"/>
                                                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                                            <inset key="sectionInset" minX="8" minY="8" maxX="8" maxY="0.0"/>
+                                                            <inset key="sectionInset" minX="8" minY="0.0" maxX="8" maxY="0.0"/>
                                                         </collectionViewFlowLayout>
                                                         <cells>
-                                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="nnw-68-dZg">
-                                                                <rect key="frame" x="8" y="13.5" width="200" height="299"/>
+                                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="upcomingCell" id="nnw-68-dZg" customClass="UpcomingCollectionViewCell" customModule="spectare" customModuleProvider="target">
+                                                                <rect key="frame" x="8" y="9.5" width="200" height="299"/>
                                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Pwm-dg-saU">
                                                                     <rect key="frame" x="0.0" y="0.0" width="200" height="299"/>
@@ -251,17 +268,17 @@
                                                                                 <constraint firstAttribute="width" secondItem="9x8-9k-IXt" secondAttribute="height" multiplier="184:260" id="xwf-wL-1h8"/>
                                                                             </constraints>
                                                                         </imageView>
-                                                                        <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NYL-3o-ZNC">
-                                                                            <rect key="frame" x="8" y="272" width="184" height="19.5"/>
+                                                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="NYL-3o-ZNC">
+                                                                            <rect key="frame" x="8" y="272" width="184" height="19"/>
                                                                             <subviews>
-                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="253" verticalHuggingPriority="251" text="&lt;titleName&gt;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QfS-gU-MsO">
-                                                                                    <rect key="frame" x="0.0" y="0.0" width="89.5" height="19.5"/>
+                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="253" verticalHuggingPriority="251" text="&lt;titleName&gt;" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QfS-gU-MsO">
+                                                                                    <rect key="frame" x="0.0" y="0.0" width="89.5" height="19"/>
                                                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                                                     <nil key="textColor"/>
                                                                                     <nil key="highlightedColor"/>
                                                                                 </label>
-                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="date" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cRo-4n-HLi">
-                                                                                    <rect key="frame" x="89.5" y="0.0" width="94.5" height="19.5"/>
+                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="date" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cRo-4n-HLi">
+                                                                                    <rect key="frame" x="93.5" y="0.0" width="90.5" height="19"/>
                                                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                                                     <color key="textColor" red="0.70196078429999997" green="0.70196078429999997" blue="0.70196078429999997" alpha="1" colorSpace="calibratedRGB"/>
                                                                                     <nil key="highlightedColor"/>
@@ -272,14 +289,24 @@
                                                                     <constraints>
                                                                         <constraint firstItem="NYL-3o-ZNC" firstAttribute="leading" secondItem="Pwm-dg-saU" secondAttribute="leading" constant="8" id="4fR-bf-Hzh"/>
                                                                         <constraint firstItem="9x8-9k-IXt" firstAttribute="top" secondItem="Pwm-dg-saU" secondAttribute="top" constant="8" id="4rT-mM-2kn"/>
+                                                                        <constraint firstAttribute="bottom" secondItem="NYL-3o-ZNC" secondAttribute="bottom" constant="8" id="Qf4-Kd-HYp"/>
                                                                         <constraint firstAttribute="trailing" secondItem="9x8-9k-IXt" secondAttribute="trailing" constant="8" id="fKL-qh-Vde"/>
                                                                         <constraint firstAttribute="trailing" secondItem="NYL-3o-ZNC" secondAttribute="trailing" constant="8" id="sDF-cv-z34"/>
                                                                         <constraint firstItem="9x8-9k-IXt" firstAttribute="leading" secondItem="Pwm-dg-saU" secondAttribute="leading" constant="8" id="tjj-dG-NX4"/>
                                                                         <constraint firstItem="NYL-3o-ZNC" firstAttribute="top" secondItem="9x8-9k-IXt" secondAttribute="bottom" constant="4" id="yd7-0d-cIP"/>
                                                                     </constraints>
                                                                 </collectionViewCellContentView>
+                                                                <connections>
+                                                                    <outlet property="ivFilm" destination="9x8-9k-IXt" id="aJ4-HF-ojs"/>
+                                                                    <outlet property="lbDate" destination="cRo-4n-HLi" id="ZuP-OD-pYK"/>
+                                                                    <outlet property="lbTitle" destination="QfS-gU-MsO" id="p1T-3x-qAH"/>
+                                                                </connections>
                                                             </collectionViewCell>
                                                         </cells>
+                                                        <connections>
+                                                            <outlet property="dataSource" destination="BYZ-38-t0r" id="bdi-wR-zA4"/>
+                                                            <outlet property="delegate" destination="BYZ-38-t0r" id="GWg-4d-tVm"/>
+                                                        </connections>
                                                     </collectionView>
                                                 </subviews>
                                             </stackView>
@@ -308,6 +335,11 @@
                     </view>
                     <navigationItem key="navigationItem" title="Featured" id="87P-gr-dC1"/>
                     <size key="freeformSize" width="414" height="1292"/>
+                    <connections>
+                        <outlet property="nowPlayingCollectionView" destination="VMh-LB-vGd" id="syi-8i-Yhz"/>
+                        <outlet property="popularCollectionView" destination="5ch-Ai-HCn" id="NvS-ln-7Wx"/>
+                        <outlet property="upcomingCollectionView" destination="oOo-Lo-SZE" id="u0d-GC-6WV"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
