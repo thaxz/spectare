@@ -101,8 +101,8 @@
                                                             </collectionViewCell>
                                                         </cells>
                                                         <connections>
-                                                            <outlet property="dataSource" destination="BYZ-38-t0r" id="VC3-CO-twJ"/>
-                                                            <outlet property="delegate" destination="BYZ-38-t0r" id="Xdq-KT-aFY"/>
+                                                            <outlet property="dataSource" destination="BYZ-38-t0r" id="4H0-t0-TkC"/>
+                                                            <outlet property="delegate" destination="BYZ-38-t0r" id="0o4-qe-x2M"/>
                                                         </connections>
                                                     </collectionView>
                                                 </subviews>
@@ -204,10 +204,6 @@
                                                                 </connections>
                                                             </collectionViewCell>
                                                         </cells>
-                                                        <connections>
-                                                            <outlet property="dataSource" destination="BYZ-38-t0r" id="V0m-B6-ZXK"/>
-                                                            <outlet property="delegate" destination="BYZ-38-t0r" id="B8P-m4-wYA"/>
-                                                        </connections>
                                                     </collectionView>
                                                 </subviews>
                                             </stackView>
@@ -303,10 +299,6 @@
                                                                 </connections>
                                                             </collectionViewCell>
                                                         </cells>
-                                                        <connections>
-                                                            <outlet property="dataSource" destination="BYZ-38-t0r" id="bdi-wR-zA4"/>
-                                                            <outlet property="delegate" destination="BYZ-38-t0r" id="GWg-4d-tVm"/>
-                                                        </connections>
                                                     </collectionView>
                                                 </subviews>
                                             </stackView>
