@@ -7,7 +7,7 @@
 
 import UIKit
 
-extension FeaturedViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+extension FeaturedViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
@@ -28,7 +28,7 @@ extension FeaturedViewController: UICollectionViewDelegate, UICollectionViewData
         
         if collectionView == popularCollectionView {
             
-            let cell = popularCollectionView.dequeueReusableCell(withReuseIdentifier: "popularCell", for: indexPath) as! PopularCollectionViewCell
+            let cell = popularCollectionView.dequeueReusableCell(withReuseIdentifier: PopularCollectionViewCell.cellIdentifier, for: indexPath) as! PopularCollectionViewCell
             
             // Preenchendo a célula
             
@@ -39,21 +39,21 @@ extension FeaturedViewController: UICollectionViewDelegate, UICollectionViewData
             
         } else if collectionView == nowPlayingCollectionView {
             
-            let cell = nowPlayingCollectionView.dequeueReusableCell(withReuseIdentifier: "nowPlayingCell", for: indexPath) as! NowPlayingCollectionViewCell
+            let cell = nowPlayingCollectionView.dequeueReusableCell(withReuseIdentifier: NowPlayingCollectionViewCell.cellIdentifier, for: indexPath) as! NowPlayingCollectionViewCell
             
             cell.lbTitle.text = nowPlayingMovies[indexPath.item].title
             cell.ivFilm.image = UIImage(named: nowPlayingMovies[indexPath.item].poster)
-            cell.lbDate.text = nowPlayingMovies[indexPath.item].releaseDate
+            cell.lbDate.text = String(nowPlayingMovies[indexPath.item].releaseDate.prefix(4))
             
             return cell
             
         } else if collectionView == upcomingCollectionView {
             
-            let cell = upcomingCollectionView.dequeueReusableCell(withReuseIdentifier: "upcomingCell", for: indexPath) as! UpcomingCollectionViewCell
+            let cell = upcomingCollectionView.dequeueReusableCell(withReuseIdentifier: UpcomingCollectionViewCell.cellIdentifier, for: indexPath) as! UpcomingCollectionViewCell
             
             cell.lbTitle.text = upcomingMovies[indexPath.item].title
             cell.ivFilm.image = UIImage(named: upcomingMovies[indexPath.item].poster)
-            cell.lbDate.text = upcomingMovies[indexPath.item].releaseDate
+            cell.lbDate.text = String(upcomingMovies[indexPath.item].releaseDate.prefix(4))
             
             return cell
             

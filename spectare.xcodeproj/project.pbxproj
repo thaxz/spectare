@@ -13,6 +13,8 @@
 		E913982B287DF4E900AF7225 /* Movie+Popular.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9139826287DF4E900AF7225 /* Movie+Popular.swift */; };
 		E913982C287DF4E900AF7225 /* Movie+TrendingThisWeek.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9139827287DF4E900AF7225 /* Movie+TrendingThisWeek.swift */; };
 		E913982E287E145000AF7225 /* FeaturedViewController+UICollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E913982D287E145000AF7225 /* FeaturedViewController+UICollectionViewDataSource.swift */; };
+		E9453993287F3F0100BDED75 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9453992287F3F0100BDED75 /* DetailsViewController.swift */; };
+		E9453995287F47ED00BDED75 /* FeaturedViewController+UICollectionViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9453994287F47ED00BDED75 /* FeaturedViewController+UICollectionViewDelegate.swift */; };
 		E9BB38CA2874B040002427D0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9BB38C92874B040002427D0 /* AppDelegate.swift */; };
 		E9BB38CC2874B040002427D0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9BB38CB2874B040002427D0 /* SceneDelegate.swift */; };
 		E9BB38CE2874B040002427D0 /* FeaturedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9BB38CD2874B040002427D0 /* FeaturedViewController.swift */; };
@@ -32,6 +34,8 @@
 		E9139826287DF4E900AF7225 /* Movie+Popular.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Movie+Popular.swift"; sourceTree = "<group>"; };
 		E9139827287DF4E900AF7225 /* Movie+TrendingThisWeek.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Movie+TrendingThisWeek.swift"; sourceTree = "<group>"; };
 		E913982D287E145000AF7225 /* FeaturedViewController+UICollectionViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FeaturedViewController+UICollectionViewDataSource.swift"; sourceTree = "<group>"; };
+		E9453992287F3F0100BDED75 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
+		E9453994287F47ED00BDED75 /* FeaturedViewController+UICollectionViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FeaturedViewController+UICollectionViewDelegate.swift"; sourceTree = "<group>"; };
 		E9BB38C62874B040002427D0 /* spectare.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = spectare.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9BB38C92874B040002427D0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E9BB38CB2874B040002427D0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -89,8 +93,10 @@
 		E9E6B005287C9939001C4A6A /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				E9453992287F3F0100BDED75 /* DetailsViewController.swift */,
 				E9BB38CD2874B040002427D0 /* FeaturedViewController.swift */,
 				E913982D287E145000AF7225 /* FeaturedViewController+UICollectionViewDataSource.swift */,
+				E9453994287F47ED00BDED75 /* FeaturedViewController+UICollectionViewDelegate.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -211,6 +217,8 @@
 				E9BB38CE2874B040002427D0 /* FeaturedViewController.swift in Sources */,
 				E9139829287DF4E900AF7225 /* Movie+TrendingToday.swift in Sources */,
 				E913982C287DF4E900AF7225 /* Movie+TrendingThisWeek.swift in Sources */,
+				E9453995287F47ED00BDED75 /* FeaturedViewController+UICollectionViewDelegate.swift in Sources */,
+				E9453993287F3F0100BDED75 /* DetailsViewController.swift in Sources */,
 				E9BB38CA2874B040002427D0 /* AppDelegate.swift in Sources */,
 				E9BB38CC2874B040002427D0 /* SceneDelegate.swift in Sources */,
 			);

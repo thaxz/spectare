@@ -24,11 +24,23 @@ class FeaturedViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Alimentando as collectionViews
+        // Implementando o dataSource
         
         popularCollectionView.dataSource = self
         nowPlayingCollectionView.dataSource = self
         upcomingCollectionView.dataSource = self
+        
+        // Implementando o delegate
+        
+        popularCollectionView.delegate = self
+        nowPlayingCollectionView.delegate = self
+        upcomingCollectionView.delegate = self
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let detailsViewController = segue.destination as? DetailsViewController else { return }
+        guard let movie = sender as? Movie else { return }
+        detailsViewController.movie = movie
     }
     
     
