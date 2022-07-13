@@ -13,28 +13,23 @@ class FeaturedViewController: UIViewController {
     @IBOutlet var nowPlayingCollectionView: UICollectionView!
     @IBOutlet var upcomingCollectionView: UICollectionView!
     
+    // Instanciando cada extensão
+    
+    let popularMovies = Movie.popularMovies()
+    
+    let nowPlayingMovies = Movie.nowPlayingMovies()
+    
+    let upcomingMovies = Movie.upcomingMovies()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-    }
-    
-    
-}
-
-extension FeaturedViewController: UICollectionViewDelegate, UICollectionViewDataSource {
-    
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 1
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "popularCell", for: indexPath) as! PopularCollectionViewCell
-        cell.lbTitle.text = "Título do filme"
-        cell.ivFilm.image = UIImage()
+        // Alimentando as collectionViews
         
-        return cell
+        popularCollectionView.dataSource = self
+        nowPlayingCollectionView.dataSource = self
+        upcomingCollectionView.dataSource = self
     }
+    
     
 }
