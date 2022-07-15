@@ -15,6 +15,7 @@
 		E913982E287E145000AF7225 /* FeaturedViewController+UICollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E913982D287E145000AF7225 /* FeaturedViewController+UICollectionViewDataSource.swift */; };
 		E9453993287F3F0100BDED75 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9453992287F3F0100BDED75 /* DetailsViewController.swift */; };
 		E9453995287F47ED00BDED75 /* FeaturedViewController+UICollectionViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9453994287F47ED00BDED75 /* FeaturedViewController+UICollectionViewDelegate.swift */; };
+		E9685E032881E7FC00EEEE93 /* TMDB-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E9685E022881E7FC00EEEE93 /* TMDB-Info.plist */; };
 		E9BB38CA2874B040002427D0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9BB38C92874B040002427D0 /* AppDelegate.swift */; };
 		E9BB38CC2874B040002427D0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9BB38CB2874B040002427D0 /* SceneDelegate.swift */; };
 		E9BB38CE2874B040002427D0 /* FeaturedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9BB38CD2874B040002427D0 /* FeaturedViewController.swift */; };
@@ -36,6 +37,7 @@
 		E913982D287E145000AF7225 /* FeaturedViewController+UICollectionViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FeaturedViewController+UICollectionViewDataSource.swift"; sourceTree = "<group>"; };
 		E9453992287F3F0100BDED75 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		E9453994287F47ED00BDED75 /* FeaturedViewController+UICollectionViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FeaturedViewController+UICollectionViewDelegate.swift"; sourceTree = "<group>"; };
+		E9685E022881E7FC00EEEE93 /* TMDB-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TMDB-Info.plist"; sourceTree = "<group>"; };
 		E9BB38C62874B040002427D0 /* spectare.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = spectare.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9BB38C92874B040002427D0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E9BB38CB2874B040002427D0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -118,6 +120,7 @@
 			children = (
 				E9BB38D22874B041002427D0 /* Assets.xcassets */,
 				E9BB38D72874B041002427D0 /* Info.plist */,
+				E9685E022881E7FC00EEEE93 /* TMDB-Info.plist */,
 			);
 			name = SupportingFiles;
 			sourceTree = "<group>";
@@ -194,6 +197,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E9BB38D62874B041002427D0 /* LaunchScreen.storyboard in Resources */,
+				E9685E032881E7FC00EEEE93 /* TMDB-Info.plist in Resources */,
 				E9BB38D32874B041002427D0 /* Assets.xcassets in Resources */,
 				E9BB38D12874B040002427D0 /* Main.storyboard in Resources */,
 			);

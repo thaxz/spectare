@@ -32,8 +32,13 @@ extension FeaturedViewController: UICollectionViewDataSource {
             
             // Preenchendo a célula
             
-            cell.lbTitle.text = popularMovies[indexPath.item].title
-            cell.ivFilm.image = UIImage(named: popularMovies[indexPath.item].backdrop)
+            cell.setup(title: popularMovies[indexPath.item].title,
+                       image: UIImage(named: popularMovies[indexPath.item].backdrop) ?? UIImage() )
+
+//            Prefiro assim
+            
+//            cell.lbTitle.text = popularMovies[indexPath.item].title
+//            cell.ivFilm.image = UIImage(named: popularMovies[indexPath.item].backdrop)
             
             return cell
             
@@ -41,9 +46,13 @@ extension FeaturedViewController: UICollectionViewDataSource {
             
             let cell = nowPlayingCollectionView.dequeueReusableCell(withReuseIdentifier: NowPlayingCollectionViewCell.cellIdentifier, for: indexPath) as! NowPlayingCollectionViewCell
             
-            cell.lbTitle.text = nowPlayingMovies[indexPath.item].title
-            cell.ivFilm.image = UIImage(named: nowPlayingMovies[indexPath.item].poster)
-            cell.lbDate.text = String(nowPlayingMovies[indexPath.item].releaseDate.prefix(4))
+            cell.setup(title: nowPlayingMovies[indexPath.item].title,
+                       image: UIImage(named: nowPlayingMovies[indexPath.item].poster) ?? UIImage(),
+                       date: String(nowPlayingMovies[indexPath.item].releaseDate.prefix(4)))
+            
+//            cell.lbTitle.text = nowPlayingMovies[indexPath.item].title
+//            cell.ivFilm.image = UIImage(named: nowPlayingMovies[indexPath.item].poster)
+//            cell.lbDate.text = String(nowPlayingMovies[indexPath.item].releaseDate.prefix(4))
             
             return cell
             
@@ -51,9 +60,13 @@ extension FeaturedViewController: UICollectionViewDataSource {
             
             let cell = upcomingCollectionView.dequeueReusableCell(withReuseIdentifier: UpcomingCollectionViewCell.cellIdentifier, for: indexPath) as! UpcomingCollectionViewCell
             
-            cell.lbTitle.text = upcomingMovies[indexPath.item].title
-            cell.ivFilm.image = UIImage(named: upcomingMovies[indexPath.item].poster)
-            cell.lbDate.text = String(upcomingMovies[indexPath.item].releaseDate.prefix(4))
+            cell.setup(title: upcomingMovies[indexPath.item].title,
+                       image: UIImage(named: upcomingMovies[indexPath.item].poster) ?? UIImage(),
+                       date: String(upcomingMovies[indexPath.item].releaseDate.prefix(4)))
+            
+//            cell.lbTitle.text = upcomingMovies[indexPath.item].title
+//            cell.ivFilm.image = UIImage(named: upcomingMovies[indexPath.item].poster)
+//            cell.lbDate.text = String(upcomingMovies[indexPath.item].releaseDate.prefix(4))
             
             return cell
             
