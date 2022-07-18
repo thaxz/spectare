@@ -28,9 +28,22 @@ class DetailsViewController: UIViewController {
         guard let movie = movie else {return}
 
         self.title = movie.title
-        ivBackdrop.image = UIImage(named: movie.backdrop)
+        
+        Task {
+            // baixar imagem do backdrop
+            let backdropImage = await Movie.downloadImageData(withPath: movie.backdropPath)
+            let imageBackdrop = UIImage(data: backdropImage) ?? UIImage()
+            self.ivBackdrop.image = imageBackdrop
+            // baixar imagem do poster
+            let posterImage = await Movie.downloadImageData(withPath: movie.posterPath)
+            let imagePoster = UIImage(data: posterImage)
+            self.ivPoster.image = imagePoster
+            
+        }
+        
+        ivBackdrop.image = UIImage(named: movie.backdropPath)
         lbTitle.text = movie.title
-        ivPoster.image = UIImage(named: movie.poster)
+        ivPoster.image = UIImage(named: movie.posterPath)
         lbRating.text = "Rating: \(movie.voteAverage)/10"
         lbOverview.text = movie.overview
        
