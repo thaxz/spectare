@@ -40,6 +40,7 @@ extension FeaturedViewController: UICollectionViewDataSource {
             let movie = popularMovies[indexPath.item]
             
             Task {
+                
                 let imageData = await Movie.downloadImageData(withPath: movie.backdropPath)
                 let ivPoster = UIImage(data: imageData) ?? UIImage()
                 cell.setup(title: movie.title, image: ivPoster)
