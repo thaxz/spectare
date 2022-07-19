@@ -41,13 +41,34 @@ class DetailsViewController: UIViewController {
             
         }
         
+
+        
         ivBackdrop.image = UIImage(named: movie.backdropPath)
         lbTitle.text = movie.title
         ivPoster.image = UIImage(named: movie.posterPath)
         lbRating.text = "Rating: \(movie.voteAverage)/10"
         lbOverview.text = movie.overview
        
+        
     }
     
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        guard let posterViewController = segue.destination as? PosterViewController else { return }
+        
+        posterViewController.photoPoster = ivPoster.image!
+        posterViewController.filmTitle = movie!.title
+        
+        hidesBottomBarWhenPushed = true
 
+
+        
+    }
+
+    @IBAction func goToPicture(_ sender: UIButton) {
+        performSegue(withIdentifier: "posterSegue", sender: Any?.self)
+    }
+    
+    
 }

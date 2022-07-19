@@ -96,7 +96,7 @@ extension FeaturedViewController: UICollectionViewDataSource {
         return UICollectionViewCell()
     }
     
-    
+
     
     
     
