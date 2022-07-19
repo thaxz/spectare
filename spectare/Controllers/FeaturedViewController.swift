@@ -57,6 +57,13 @@ class FeaturedViewController: UIViewController {
         
     }
     
+    // Botão See All
+    
+    @IBAction func seeAll(_ sender: UIButton) {
+        performSegue(withIdentifier: "seeAllSegue", sender: Any?.self)
+    }
+    
+    
     // Passando infos pela segue
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

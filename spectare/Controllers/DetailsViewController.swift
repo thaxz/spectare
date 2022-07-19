@@ -16,8 +16,8 @@ class DetailsViewController: UIViewController {
     @IBOutlet var ivPoster: UIImageView!
     @IBOutlet var lbRating: UILabel!
     @IBOutlet var lbOverview: UILabel!
-    
-    
+    @IBOutlet var lbGenres: UILabel!
+    @IBOutlet var lbRuntime: UILabel!
     
     
     override func viewDidLoad() {
@@ -30,6 +30,9 @@ class DetailsViewController: UIViewController {
         self.title = movie.title
         
         Task {
+            // Pegar generos e duração
+            let data = await Movie.detailsMoviesAPI(Int(movie.id ?? 0))
+            lbRuntime.text = "\(String(data.runtime/60))h \(String(data.runtime%60)) min."
             // baixar imagem do backdrop
             let backdropImage = await Movie.downloadImageData(withPath: movie.backdropPath)
             let imageBackdrop = UIImage(data: backdropImage) ?? UIImage()

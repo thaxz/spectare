@@ -98,6 +98,64 @@ extension Movie {
         return []
     }
     
+    // Tela de see all
+    
+    static func seeAllMoviesAPI() async -> [Movie] {
+        
+        var components = Movie.urlComponents
+        components.path = "/3/movie/popular"
+        components.queryItems = [
+            URLQueryItem(name: "api_key", value: Movie.apiKey)
+        ]
+        
+        let session = URLSession.shared
+        
+        do {
+            let (data,response) = try await session.data(from: components.url!)
+            
+            let decoder = JSONDecoder()
+            decoder.keyDecodingStrategy = .convertFromSnakeCase
+            
+            let movieResult = try decoder.decode(MovieResponse.self, from: data)
+            
+            return movieResult.results
+            
+        } catch {
+            print(error.localizedDescription)
+        }
+    
+        return []
+    }
+    
+    // Tela de detalhes
+    
+    static func detailsMoviesAPI(_ movieId: Int) async -> MovieDetails {
+        
+        var components = Movie.urlComponents
+        components.path = "/3/movie/\(movieId)"
+        components.queryItems = [
+            URLQueryItem(name: "api_key", value: Movie.apiKey)
+        ]
+        
+        let session = URLSession.shared
+        
+        do {
+            let (data,response) = try await session.data(from: components.url!)
+            
+            let decoder = JSONDecoder()
+            decoder.keyDecodingStrategy = .convertFromSnakeCase
+            
+            let movieResult = try decoder.decode(MovieDetails.self, from: data)
+            
+            return movieResult
+            
+        } catch {
+            print(error.localizedDescription)
+        }
+    
+        return MovieDetails(runtime: 0, genres: [])
+    }
+    
     // download de imagens
     
     static func downloadImageData(withPath: String) async -> Data {
