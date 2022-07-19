@@ -41,7 +41,7 @@ extension FeaturedViewController: UICollectionViewDataSource {
             
             Task {
                 
-                let imageData = await Movie.downloadImageData(withPath: movie.backdropPath)
+                let imageData = await Movie.downloadImageData(withPath: movie.backdropPath ?? "")
                 let ivPoster = UIImage(data: imageData) ?? UIImage()
                 cell.setup(title: movie.title, image: ivPoster)
             }
@@ -57,14 +57,14 @@ extension FeaturedViewController: UICollectionViewDataSource {
             
             cell.setup(title: nowPlayingMovies[indexPath.item].title,
                        image: UIImage(),
-                       date: String(nowPlayingMovies[indexPath.item].releaseDate.prefix(4)))
+                       date: String(nowPlayingMovies[indexPath.item].releaseDate!.prefix(4)))
             
             let movie = nowPlayingMovies[indexPath.item]
             
             Task {
-                let imageData = await Movie.downloadImageData(withPath: movie.posterPath)
+                let imageData = await Movie.downloadImageData(withPath: movie.posterPath ?? "")
                 let ivPoster = UIImage(data: imageData) ?? UIImage()
-                cell.setup(title: movie.title, image: ivPoster, date: String(movie.releaseDate.prefix(4)))
+                cell.setup(title: movie.title, image: ivPoster, date: String(movie.releaseDate!.prefix(4)))
             }
             
             return cell
@@ -77,15 +77,15 @@ extension FeaturedViewController: UICollectionViewDataSource {
             
             cell.setup(title: upcomingMovies[indexPath.item].title,
                        image: UIImage(),
-                       date: upcomingMovies[indexPath.item].releaseDate)
+                       date: upcomingMovies[indexPath.item].releaseDate ?? "")
             
             let movie = upcomingMovies[indexPath.item]
             
             Task {
                 
-                let imageData = await Movie.downloadImageData(withPath: movie.posterPath)
+                let imageData = await Movie.downloadImageData(withPath: movie.posterPath!)
                 let ivPoster = UIImage(data: imageData) ?? UIImage()
-                cell.setup(title: movie.title, image: ivPoster, date: movie.releaseDate)
+                cell.setup(title: movie.title, image: ivPoster, date: movie.releaseDate ?? "")
             }
             
             

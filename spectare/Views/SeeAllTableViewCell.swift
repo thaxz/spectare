@@ -22,7 +22,7 @@ class SeeAllTableViewCell: UITableViewCell {
         lbRating.text = rating
         lbTitle.text = title
         lbYear.text = year
-        
+        self.ivPoster.layer.cornerRadius = 8
         
     }
     

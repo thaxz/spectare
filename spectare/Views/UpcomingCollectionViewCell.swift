@@ -33,6 +33,7 @@ class UpcomingCollectionViewCell: UICollectionViewCell {
         lbTitle.text = title
         ivFilm.image = image
         lbDate.text = convertDate(date: String(date.suffix(5)))
+        self.ivFilm.layer.cornerRadius = 8
         
         
     }

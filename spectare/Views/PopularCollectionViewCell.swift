@@ -19,6 +19,7 @@ class PopularCollectionViewCell: UICollectionViewCell {
         
         lbTitle.text = title
         ivFilm.image = image
+        self.ivFilm.layer.cornerRadius = 8
         
     }
     

@@ -12,7 +12,7 @@ class FeaturedViewController: UIViewController {
     @IBOutlet var popularCollectionView: UICollectionView!
     @IBOutlet var nowPlayingCollectionView: UICollectionView!
     @IBOutlet var upcomingCollectionView: UICollectionView!
-  
+    
     // Instanciando cada array
     
     var popularMovies: [Movie] = []
@@ -60,17 +60,30 @@ class FeaturedViewController: UIViewController {
     // Botão See All
     
     @IBAction func seeAll(_ sender: UIButton) {
-        performSegue(withIdentifier: "seeAllSegue", sender: Any?.self)
+        
     }
     
     
     // Passando infos pela segue
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let detailsViewController = segue.destination as? DetailsViewController else { return }
-        guard let movie = sender as? Movie else { return }
-        detailsViewController.movie = movie
+        
+        if segue.identifier == "detailsSegue" {
+            guard let detailsViewController = segue.destination as? DetailsViewController else { return }
+            guard let movie = sender as? Movie else { return }
+            detailsViewController.movie = movie
+        }
+        else if segue.identifier == "popularSeeAll" {
+            guard let seeAllViewController = segue.destination as? SeeAllViewController else { return }
+            seeAllViewController.seeAllMovies = popularMovies
+            
+        } else if segue.identifier == "nowPlayingSeeAll" {
+            guard let seeAllViewController = segue.destination as? SeeAllViewController else { return }
+            seeAllViewController.seeAllMovies = nowPlayingMovies
+        } else if segue.identifier == "upcomingSeeAll" {
+            guard let seeAllViewController = segue.destination as? SeeAllViewController else { return }
+            seeAllViewController.seeAllMovies = upcomingMovies
+        }
+        
     }
-    
-    
 }

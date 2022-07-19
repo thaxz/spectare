@@ -53,12 +53,7 @@ extension SeeAllViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        if tableView == seeAllTableView {
-            return seeAllMovies.count
-            
-        } else {
-            return 0
-        }
+        return seeAllMovies.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -69,19 +64,19 @@ extension SeeAllViewController: UITableViewDelegate, UITableViewDataSource {
             
             // Preenchendo a célula
             
-            cell.setup(title: seeAllMovies[indexPath.item].title,
+            let movie = seeAllMovies[indexPath.item]
+            
+            cell.setup(title: movie.title,
                        rating: String(seeAllMovies[indexPath.item].voteAverage),
                        image: UIImage(),
-                       year: seeAllMovies[indexPath.item].releaseDate)
+                       year: seeAllMovies[indexPath.item].releaseDate ?? "")
     
-            
-            let movie = seeAllMovies[indexPath.item]
             
             Task {
                 
-                let imageData = await Movie.downloadImageData(withPath: movie.posterPath)
+                let imageData = await Movie.downloadImageData(withPath: movie.posterPath ?? "")
                 let ivPoster = UIImage(data: imageData) ?? UIImage()
-                cell.setup(title: movie.title, rating: String(movie.voteAverage), image: ivPoster, year: movie.releaseDate)
+                cell.setup(title: movie.title, rating: String(movie.voteAverage), image: ivPoster, year: String(movie.releaseDate?.prefix(4) ?? ""))
             }
             
             
@@ -106,7 +101,10 @@ extension SeeAllViewController: UITableViewDelegate, UITableViewDataSource {
             
             print(seeAllMovies[indexPath.item])
             
-        } else {return}
+        } else {
+            return
+            
+        }
         
         self.performSegue(withIdentifier: "detailsSegue2", sender: movie)
         

@@ -30,15 +30,30 @@ class DetailsViewController: UIViewController {
         self.title = movie.title
         
         Task {
-            // Pegar generos e duração
-            let data = await Movie.detailsMoviesAPI(Int(movie.id ?? 0))
+            // Pegar duração
+            let data = await Movie.detailsMoviesAPI(Int(movie.id ))
             lbRuntime.text = "\(String(data.runtime/60))h \(String(data.runtime%60)) min."
+            // Pegar generos
+            let genres = data.genres.map { genre in
+                return genre.name
+            }
+            var aux = ""
+            
+            for i in 0...genres.count - 1 {
+                if i == genres.count - 1 {
+                    aux += genres[i]
+                } else {
+                    aux += genres[i] + ", \n"
+                }
+            }
+            lbGenres.text = aux
+            
             // baixar imagem do backdrop
-            let backdropImage = await Movie.downloadImageData(withPath: movie.backdropPath)
+            let backdropImage = await Movie.downloadImageData(withPath: movie.backdropPath ?? "")
             let imageBackdrop = UIImage(data: backdropImage) ?? UIImage()
             self.ivBackdrop.image = imageBackdrop
             // baixar imagem do poster
-            let posterImage = await Movie.downloadImageData(withPath: movie.posterPath)
+            let posterImage = await Movie.downloadImageData(withPath: movie.posterPath ?? "")
             let imagePoster = UIImage(data: posterImage)
             self.ivPoster.image = imagePoster
             
@@ -46,9 +61,9 @@ class DetailsViewController: UIViewController {
         
 
         
-        ivBackdrop.image = UIImage(named: movie.backdropPath)
+        ivBackdrop.image = UIImage(named: movie.backdropPath ?? "")
         lbTitle.text = movie.title
-        ivPoster.image = UIImage(named: movie.posterPath)
+        ivPoster.image = UIImage(named: movie.posterPath ?? "")
         lbRating.text = "Rating: \(movie.voteAverage)/10"
         lbOverview.text = movie.overview
        

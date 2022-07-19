@@ -20,6 +20,7 @@ class NowPlayingCollectionViewCell: UICollectionViewCell {
         lbTitle.text = title
         ivFilm.image = image
         lbDate.text = date
+        self.ivFilm.layer.cornerRadius = 8
         
     }
     
