@@ -98,34 +98,6 @@ extension Movie {
         return []
     }
     
-    // Tela de see all
-    
-    static func seeAllMoviesAPI() async -> [Movie] {
-        
-        var components = Movie.urlComponents
-        components.path = "/3/movie/popular"
-        components.queryItems = [
-            URLQueryItem(name: "api_key", value: Movie.apiKey)
-        ]
-        
-        let session = URLSession.shared
-        
-        do {
-            let (data,response) = try await session.data(from: components.url!)
-            
-            let decoder = JSONDecoder()
-            decoder.keyDecodingStrategy = .convertFromSnakeCase
-            
-            let movieResult = try decoder.decode(MovieResponse.self, from: data)
-            
-            return movieResult.results
-            
-        } catch {
-            print(error.localizedDescription)
-        }
-    
-        return []
-    }
     
     static func searchMoviesAPI(title: String) async -> [Movie] {
         
@@ -182,6 +154,64 @@ extension Movie {
         }
     
         return MovieDetails(runtime: 0, genres: [])
+    }
+    
+    // Trending Movies week
+    
+    static func trendingWeekMoviesAPI() async -> [Movie] {
+        
+        var components = Movie.urlComponents
+        components.path = "/3/trending/movie/week"
+        components.queryItems = [
+            URLQueryItem(name: "api_key", value: Movie.apiKey)
+        ]
+        
+        let session = URLSession.shared
+        
+        do {
+            let (data,response) = try await session.data(from: components.url!)
+            
+            let decoder = JSONDecoder()
+            decoder.keyDecodingStrategy = .convertFromSnakeCase
+            
+            let movieResult = try decoder.decode(MovieResponse.self, from: data)
+            
+            return movieResult.results
+            
+        } catch {
+            print(error.localizedDescription)
+        }
+    
+        return []
+    }
+    
+    // Trending Movies day
+    
+    static func trendingDayMoviesAPI() async -> [Movie] {
+        
+        var components = Movie.urlComponents
+        components.path = "/3/trending/movie/day"
+        components.queryItems = [
+            URLQueryItem(name: "api_key", value: Movie.apiKey)
+        ]
+        
+        let session = URLSession.shared
+        
+        do {
+            let (data,response) = try await session.data(from: components.url!)
+            
+            let decoder = JSONDecoder()
+            decoder.keyDecodingStrategy = .convertFromSnakeCase
+            
+            let movieResult = try decoder.decode(MovieResponse.self, from: data)
+            
+            return movieResult.results
+            
+        } catch {
+            print(error.localizedDescription)
+        }
+    
+        return []
     }
     
     // download de imagens

@@ -64,7 +64,8 @@ class DetailsViewController: UIViewController {
         ivBackdrop.image = UIImage(named: movie.backdropPath ?? "")
         lbTitle.text = movie.title
         ivPoster.image = UIImage(named: movie.posterPath ?? "")
-        lbRating.text = "Rating: \(movie.voteAverage)/10"
+        let votingRounded: Float = round(movie.voteAverage*10)/10
+        lbRating.text = "Rating: \(votingRounded)/10"
         lbOverview.text = movie.overview
        
         

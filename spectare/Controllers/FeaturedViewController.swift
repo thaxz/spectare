@@ -76,13 +76,17 @@ class FeaturedViewController: UIViewController {
         else if segue.identifier == "popularSeeAll" {
             guard let seeAllViewController = segue.destination as? SeeAllViewController else { return }
             seeAllViewController.seeAllMovies = popularMovies
+            seeAllViewController.title = "Popular movies"
             
         } else if segue.identifier == "nowPlayingSeeAll" {
             guard let seeAllViewController = segue.destination as? SeeAllViewController else { return }
             seeAllViewController.seeAllMovies = nowPlayingMovies
+            seeAllViewController.title = "Now Playing"
+            
         } else if segue.identifier == "upcomingSeeAll" {
             guard let seeAllViewController = segue.destination as? SeeAllViewController else { return }
             seeAllViewController.seeAllMovies = upcomingMovies
+            seeAllViewController.title = "Upcoming Movies"
         }
         
     }

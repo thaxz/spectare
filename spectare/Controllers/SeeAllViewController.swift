@@ -24,12 +24,6 @@ class SeeAllViewController: UIViewController {
         seeAllTableView.dataSource = self
         seeAllTableView.delegate = self
         
-        // Adicionando task
-        
-        Task {
-            self.seeAllMovies = await Movie.seeAllMoviesAPI()
-            self.seeAllTableView.reloadData()
-        }
         
     }
     
@@ -67,9 +61,9 @@ extension SeeAllViewController: UITableViewDelegate, UITableViewDataSource {
             let movie = seeAllMovies[indexPath.item]
             
             cell.setup(title: movie.title,
-                       rating: String(seeAllMovies[indexPath.item].voteAverage),
+                       rating: String(movie.voteAverage),
                        image: UIImage(),
-                       year: seeAllMovies[indexPath.item].releaseDate ?? "")
+                       year: movie.releaseDate ?? "")
     
             
             Task {

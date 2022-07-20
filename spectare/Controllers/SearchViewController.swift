@@ -11,6 +11,8 @@ class SearchViewController: UIViewController, UISearchResultsUpdating {
 
     
     @IBOutlet var tableViewSearch: UITableView!
+    @IBOutlet var lbSearch: UIStackView!
+    
     
     var searchMovies: [Movie] = []
     
@@ -26,13 +28,16 @@ class SearchViewController: UIViewController, UISearchResultsUpdating {
         searchController.searchResultsUpdater = self
         searchController.searchBar.placeholder = "Search"
        
+        
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         view.endEditing(true)
+        lbSearch.isHidden = false
     }
     
     func updateSearchResults(for searchController: UISearchController) {
+        lbSearch.isHidden = true
         guard let title = searchController.searchBar.text else {return}
         
         Task {
