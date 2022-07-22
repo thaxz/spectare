@@ -71,6 +71,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E987EFD2288A27660090F410 /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				E9BB38CF2874B040002427D0 /* Main.storyboard */,
+				E9BB38D42874B041002427D0 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboard;
+			sourceTree = "<group>";
+		};
 		E9BB38BD2874B040002427D0 = {
 			isa = PBXGroup;
 			children = (
@@ -92,6 +101,7 @@
 			children = (
 				E9BB38C92874B040002427D0 /* AppDelegate.swift */,
 				E9BB38CB2874B040002427D0 /* SceneDelegate.swift */,
+				E987EFD2288A27660090F410 /* Storyboard */,
 				E9E6B005287C9939001C4A6A /* Controllers */,
 				E9EB5CAD287DEDF800E220C7 /* Model */,
 				E9E6B006287C9A00001C4A6A /* Views */,
@@ -118,10 +128,8 @@
 		E9E6B006287C9A00001C4A6A /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				E9BB38CF2874B040002427D0 /* Main.storyboard */,
 				E9D2659D2887AE8E001CD527 /* TrendingTableViewCell.swift */,
 				E9E7040C28875E1900D54C7A /* SearchTableViewCell.swift */,
-				E9BB38D42874B041002427D0 /* LaunchScreen.storyboard */,
 				E9AFC9572886525A00354782 /* SeeAllTableViewCell.swift */,
 				E9E6B003287C98BF001C4A6A /* UpcomingCollectionViewCell.swift */,
 				E9E6AFFF287C9806001C4A6A /* PopularCollectionViewCell.swift */,
@@ -407,7 +415,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -436,7 +444,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

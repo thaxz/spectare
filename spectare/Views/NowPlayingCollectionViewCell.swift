@@ -7,13 +7,21 @@
 
 import UIKit
 
+// MARK: - Class of "NowPlaying" collectionView's cell
+
 class NowPlayingCollectionViewCell: UICollectionViewCell {
     
+    // Storing cell identifier
+    
     static let cellIdentifier = "nowPlayingCell"
+    
+    // Outlets from storyboard
     
     @IBOutlet var ivFilm: UIImageView!
     @IBOutlet var lbTitle: UILabel!
     @IBOutlet var lbDate: UILabel!
+    
+    // Setting up cell
     
     func setup(title: String, image: UIImage, date: String) {
         
@@ -23,6 +31,4 @@ class NowPlayingCollectionViewCell: UICollectionViewCell {
         self.ivFilm.layer.cornerRadius = 8
         
     }
-    
-    
 }

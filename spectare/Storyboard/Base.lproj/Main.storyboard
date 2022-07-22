@@ -54,7 +54,6 @@
                                                                             <color key="baseForegroundColor" name="orange"/>
                                                                         </buttonConfiguration>
                                                                         <connections>
-                                                                            <action selector="seeAll:" destination="BYZ-38-t0r" eventType="touchUpInside" id="i2a-Wa-qAS"/>
                                                                             <segue destination="Zog-VC-lDH" kind="show" identifier="popularSeeAll" id="2dq-sm-ixC"/>
                                                                         </connections>
                                                                     </button>
@@ -442,7 +441,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aaR-Q9-JAB">
-                                <rect key="frame" x="0.0" y="88" width="414" height="1072"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="1121"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="34k-7h-gjm">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="617.33333333333337"/>
@@ -872,7 +871,7 @@
                                     <action selector="touchTrendingSc:" destination="AVg-Ao-gb2" eventType="valueChanged" id="abz-dw-Dvc"/>
                                 </connections>
                             </segmentedControl>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="singleLineEtched" rowHeight="114" sectionHeaderHeight="1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="6kP-x9-QUK">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" rowHeight="114" sectionHeaderHeight="1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="6kP-x9-QUK">
                                 <rect key="frame" x="0.0" y="187" width="375" height="625"/>
                                 <color key="separatorColor" name="green"/>
                                 <color key="sectionIndexBackgroundColor" name="background"/>
@@ -967,7 +966,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="singleLineEtched" rowHeight="114" sectionHeaderHeight="1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="AKN-Z0-2fj">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" rowHeight="114" sectionHeaderHeight="1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="AKN-Z0-2fj">
                                 <rect key="frame" x="0.0" y="88" width="375" height="724"/>
                                 <color key="separatorColor" name="orange"/>
                                 <color key="sectionIndexBackgroundColor" name="background"/>
@@ -1075,7 +1074,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="djb-aw-DL4">
-                                <rect key="frame" x="0.0" y="80" width="375" height="600"/>
+                                <rect key="frame" x="0.0" y="80" width="375" height="649"/>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="HhH-JP-ZwD"/>
@@ -1167,7 +1166,7 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="2dq-sm-ixC"/>
-        <segue reference="hHd-7R-yVe"/>
+        <segue reference="IKW-ZV-FPA"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="chevron.backward" catalog="system" width="96" height="128"/>

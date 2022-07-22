@@ -7,32 +7,39 @@
 
 import UIKit
 
+// MARK: - Implementing protocol DataSource of collection view
+
 extension FeaturedViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
-        // Escolhendo a célula
+        // Switching results according to each collection view
         
         if collectionView == popularCollectionView {
             return popularMovies.count
+            
         } else if collectionView == nowPlayingCollectionView {
             return nowPlayingMovies.count
+            
         } else if collectionView == upcomingCollectionView {
             return upcomingMovies.count
+            
         } else {
             return 0
         }
     }
     
+    // MARK: - Setting up each cell
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        // Making popular cell
+        // MARK: "Popular" cell
         
         if collectionView == popularCollectionView {
             
             let cell = popularCollectionView.dequeueReusableCell(withReuseIdentifier: PopularCollectionViewCell.cellIdentifier, for: indexPath) as! PopularCollectionViewCell
             
-            // Preenchendo a célula
+            // Setting up cell
             
             cell.setup(title: popularMovies[indexPath.item].title,
                        image: UIImage())
@@ -49,9 +56,11 @@ extension FeaturedViewController: UICollectionViewDataSource {
             
             return cell
             
-        } else if collectionView == nowPlayingCollectionView {
-            
-            // Making NowPlaying cell
+        }
+        
+        // MARK: NowPlaying cell
+        
+        else if collectionView == nowPlayingCollectionView {
             
             let cell = nowPlayingCollectionView.dequeueReusableCell(withReuseIdentifier: NowPlayingCollectionViewCell.cellIdentifier, for: indexPath) as! NowPlayingCollectionViewCell
             
@@ -62,6 +71,7 @@ extension FeaturedViewController: UICollectionViewDataSource {
             let movie = nowPlayingMovies[indexPath.item]
             
             Task {
+                
                 let imageData = await Movie.downloadImageData(withPath: movie.posterPath ?? "")
                 let ivPoster = UIImage(data: imageData) ?? UIImage()
                 cell.setup(title: movie.title, image: ivPoster, date: String(movie.releaseDate!.prefix(4)))
@@ -69,9 +79,11 @@ extension FeaturedViewController: UICollectionViewDataSource {
             
             return cell
             
-        // Making upcoming cell
-            
-        } else if collectionView == upcomingCollectionView {
+        }
+        
+        // MARK: Upcoming cell
+        
+        else if collectionView == upcomingCollectionView {
             
             let cell = upcomingCollectionView.dequeueReusableCell(withReuseIdentifier: UpcomingCollectionViewCell.cellIdentifier, for: indexPath) as! UpcomingCollectionViewCell
             
@@ -88,19 +100,10 @@ extension FeaturedViewController: UICollectionViewDataSource {
                 cell.setup(title: movie.title, image: ivPoster, date: movie.releaseDate ?? "")
             }
             
-            
             return cell
             
         }
         
         return UICollectionViewCell()
     }
-    
-
-    
-    
-    
-    
-    
-    
 }

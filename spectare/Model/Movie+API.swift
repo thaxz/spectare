@@ -9,9 +9,13 @@ import Foundation
 
 extension Movie {
     
-    // download de populares
+    // API's path
     
     static let urlComponents = URLComponents(string: "https://api.themoviedb.org/")!
+    
+    // MARK: - Requesting things to API
+    
+    // Getting "Popular" from API
     
     static func popularMoviesAPI() async -> [Movie] {
         
@@ -24,7 +28,7 @@ extension Movie {
         let session = URLSession.shared
         
         do {
-            let (data,response) = try await session.data(from: components.url!)
+            let (data,_) = try await session.data(from: components.url!)
             
             let decoder = JSONDecoder()
             decoder.keyDecodingStrategy = .convertFromSnakeCase
@@ -40,7 +44,7 @@ extension Movie {
         return []
     }
     
-    // download de now playing
+    // Getting "Now Playing" from API
     
     static func nowPlayingMoviesAPI() async -> [Movie] {
         
@@ -53,7 +57,7 @@ extension Movie {
         let session = URLSession.shared
         
         do {
-            let (data,response) = try await session.data(from: components.url!)
+            let (data,_) = try await session.data(from: components.url!)
             
             let decoder = JSONDecoder()
             decoder.keyDecodingStrategy = .convertFromSnakeCase
@@ -69,7 +73,7 @@ extension Movie {
         return []
     }
     
-    // Download de upcoming
+    // Getting "Upcoming" from API
     
     static func upcomingMoviesAPI() async -> [Movie] {
         
@@ -82,7 +86,7 @@ extension Movie {
         let session = URLSession.shared
         
         do {
-            let (data,response) = try await session.data(from: components.url!)
+            let (data,_) = try await session.data(from: components.url!)
             
             let decoder = JSONDecoder()
             decoder.keyDecodingStrategy = .convertFromSnakeCase
@@ -98,6 +102,7 @@ extension Movie {
         return []
     }
     
+    // Getting "Search" from API
     
     static func searchMoviesAPI(title: String) async -> [Movie] {
         
@@ -111,7 +116,7 @@ extension Movie {
         let session = URLSession.shared
         
         do {
-            let (data,response) = try await session.data(from: components.url!)
+            let (data,_) = try await session.data(from: components.url!)
             
             let decoder = JSONDecoder()
             decoder.keyDecodingStrategy = .convertFromSnakeCase
@@ -127,7 +132,7 @@ extension Movie {
         return []
     }
     
-    // Tela de detalhes
+    // Getting runtime and genres of the selected movie from API
     
     static func detailsMoviesAPI(_ movieId: Int) async -> MovieDetails {
         
@@ -140,7 +145,7 @@ extension Movie {
         let session = URLSession.shared
         
         do {
-            let (data,response) = try await session.data(from: components.url!)
+            let (data,_) = try await session.data(from: components.url!)
             
             let decoder = JSONDecoder()
             decoder.keyDecodingStrategy = .convertFromSnakeCase
@@ -156,7 +161,7 @@ extension Movie {
         return MovieDetails(runtime: 0, genres: [])
     }
     
-    // Trending Movies week
+    // Getting "Trending Week Movies" from API
     
     static func trendingWeekMoviesAPI() async -> [Movie] {
         
@@ -169,7 +174,7 @@ extension Movie {
         let session = URLSession.shared
         
         do {
-            let (data,response) = try await session.data(from: components.url!)
+            let (data,_) = try await session.data(from: components.url!)
             
             let decoder = JSONDecoder()
             decoder.keyDecodingStrategy = .convertFromSnakeCase
@@ -185,7 +190,7 @@ extension Movie {
         return []
     }
     
-    // Trending Movies day
+    // Getting "Trending Day Movies" from API
     
     static func trendingDayMoviesAPI() async -> [Movie] {
         
@@ -198,7 +203,7 @@ extension Movie {
         let session = URLSession.shared
         
         do {
-            let (data,response) = try await session.data(from: components.url!)
+            let (data,_) = try await session.data(from: components.url!)
             
             let decoder = JSONDecoder()
             decoder.keyDecodingStrategy = .convertFromSnakeCase
@@ -214,7 +219,7 @@ extension Movie {
         return []
     }
     
-    // download de imagens
+    // MARK: - Getting all image related data from API
     
     static func downloadImageData(withPath: String) async -> Data {
         let urlString = "https://image.tmdb.org/t/p/w780\(withPath)"
@@ -223,7 +228,7 @@ extension Movie {
         let session = URLSession.shared
         
         do {
-            let (data, response) = try await session.data(from: url)
+            let (data, _) = try await session.data(from: url)
             return data
             
         } catch {
@@ -234,10 +239,8 @@ extension Movie {
         return Data()
     }
     
+    // MARK: - Getting API Key from file "TMDB-Info.plist"
     
-    
-    
-    // MARK: - Recuperando a chave da API de um arquivo
     static var apiKey: String {
         guard let url = Bundle.main.url(forResource: "TMDB-Info", withExtension: "plist") else {
             fatalError("Couldn't find api key configuration file.")

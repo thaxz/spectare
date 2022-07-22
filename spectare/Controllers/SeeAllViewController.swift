@@ -7,39 +7,40 @@
 
 import UIKit
 
+// MARK: - Controller of "Trending" screen
+
 class SeeAllViewController: UIViewController {
     
-    @IBOutlet var seeAllTableView: UITableView!
-    
-    // Instanciando
+    // Storing and instantiating what we are going to get from API
     
     var seeAllMovies: [Movie] = []
     
+    // Outlets from Storyboard
+    
+    @IBOutlet var seeAllTableView: UITableView!
+    
+    // MARK: - View did load
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // DataSource e Delegate
+        // Defining Delegate and DataSource of See All TableView
         
         seeAllTableView.dataSource = self
         seeAllTableView.delegate = self
         
-        
     }
     
-    
-    // Passando infos pela segue
+    // Moving data to Details screen
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let detailsViewController = segue.destination as? DetailsViewController else { return }
         guard let movie = sender as? Movie else { return }
         detailsViewController.movie = movie
     }
-    
-    
 }
 
-// Delegate e DataSource
+// MARK: - Implementing Delegate and DataSource of See All Tableview
 
 extension SeeAllViewController: UITableViewDelegate, UITableViewDataSource {
     
@@ -50,13 +51,13 @@ extension SeeAllViewController: UITableViewDelegate, UITableViewDataSource {
         return seeAllMovies.count
     }
     
+    // Setting up cell
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         if tableView == seeAllTableView {
             
             let cell = seeAllTableView.dequeueReusableCell(withIdentifier: SeeAllTableViewCell.cellIdentifier, for: indexPath) as! SeeAllTableViewCell
-            
-            // Preenchendo a célula
             
             let movie = seeAllMovies[indexPath.item]
             
@@ -64,7 +65,6 @@ extension SeeAllViewController: UITableViewDelegate, UITableViewDataSource {
                        rating: String(movie.voteAverage),
                        image: UIImage(),
                        year: movie.releaseDate ?? "")
-    
             
             Task {
                 
@@ -72,14 +72,8 @@ extension SeeAllViewController: UITableViewDelegate, UITableViewDataSource {
                 let ivPoster = UIImage(data: imageData) ?? UIImage()
                 cell.setup(title: movie.title, rating: String(movie.voteAverage), image: ivPoster, year: String(movie.releaseDate?.prefix(4) ?? ""))
             }
-            
-            
             return cell
-            
         }
-        
-        
-        
         return UITableViewCell()
     }
     
@@ -97,11 +91,7 @@ extension SeeAllViewController: UITableViewDelegate, UITableViewDataSource {
             
         } else {
             return
-            
         }
-        
         self.performSegue(withIdentifier: "detailsSegue2", sender: movie)
-        
     }
-    
 }

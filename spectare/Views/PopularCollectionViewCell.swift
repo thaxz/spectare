@@ -7,13 +7,20 @@
 
 import UIKit
 
+// MARK: - Class of "Popular" collectionView's cell
+
 class PopularCollectionViewCell: UICollectionViewCell {
     
+    // Storing cell identifier
+    
     static let cellIdentifier = "popularCell"
+    
+    // Outlets from storyboard
     
     @IBOutlet var ivFilm: UIImageView!
     @IBOutlet var lbTitle: UILabel!
     
+    // Setting up cell
     
     func setup(title: String, image: UIImage) {
         
@@ -22,8 +29,4 @@ class PopularCollectionViewCell: UICollectionViewCell {
         self.ivFilm.layer.cornerRadius = 8
         
     }
-    
-
-    
-    
 }

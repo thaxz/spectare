@@ -7,6 +7,8 @@
 
 import Foundation
 
+// MARK: - Creating what we are going to get from API
+
 struct Movie: Codable {
     
     let title: String
@@ -18,15 +20,16 @@ struct Movie: Codable {
     let genres: [String]?
     let id: Int
     
-    
-    
-    
 }
+
+// Getting runtime
 
 struct MovieDetails: Codable {
     let runtime: Int
     let genres: [GenresDetails]
 }
+
+// Getting genres
 
 struct GenresDetails: Codable {
     let id: Int

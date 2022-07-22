@@ -7,10 +7,10 @@
 
 import Foundation
 
+// MARK: - A place to hold our response from API
+
 struct MovieResponse: Codable {
     
     let results: [Movie]
-    
-    
     
 }

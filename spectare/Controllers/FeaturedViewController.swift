@@ -7,43 +7,43 @@
 
 import UIKit
 
+// MARK: - Controller of "Search" screen
+
 class FeaturedViewController: UIViewController {
+    
+    // Storing and instantiating what we are going to get from API
+    
+    var popularMovies: [Movie] = []
+    var nowPlayingMovies: [Movie] = []
+    var upcomingMovies: [Movie] = []
+    
+    // Outlets from Storyboard
     
     @IBOutlet var popularCollectionView: UICollectionView!
     @IBOutlet var nowPlayingCollectionView: UICollectionView!
     @IBOutlet var upcomingCollectionView: UICollectionView!
     
-    // Instanciando cada array
-    
-    var popularMovies: [Movie] = []
-    
-    var nowPlayingMovies: [Movie] = []
-    
-    var upcomingMovies: [Movie] = []
-    
+    // MARK: - View did load
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Implementando o dataSource
+        // Defining Delegate and DataSource of Trending TableView
         
         popularCollectionView.dataSource = self
         nowPlayingCollectionView.dataSource = self
         upcomingCollectionView.dataSource = self
         
-        // Implementando o delegate
-        
         popularCollectionView.delegate = self
         nowPlayingCollectionView.delegate = self
         upcomingCollectionView.delegate = self
         
-        // Adicionando tasks
+        // Task to load get request
         
         Task {
             self.popularMovies = await Movie.popularMoviesAPI()
             self.popularCollectionView.reloadData()
         }
-        
         
         Task {
             self.nowPlayingMovies = await Movie.nowPlayingMoviesAPI()
@@ -57,37 +57,33 @@ class FeaturedViewController: UIViewController {
         
     }
     
-    // Botão See All
-    
-    @IBAction func seeAll(_ sender: UIButton) {
-        
-    }
-    
-    
-    // Passando infos pela segue
+    // Moving data to Details and See All screen
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if segue.identifier == "detailsSegue" {
+            
             guard let detailsViewController = segue.destination as? DetailsViewController else { return }
             guard let movie = sender as? Movie else { return }
             detailsViewController.movie = movie
-        }
-        else if segue.identifier == "popularSeeAll" {
+            
+        } else if segue.identifier == "popularSeeAll" {
+            
             guard let seeAllViewController = segue.destination as? SeeAllViewController else { return }
             seeAllViewController.seeAllMovies = popularMovies
             seeAllViewController.title = "Popular movies"
             
         } else if segue.identifier == "nowPlayingSeeAll" {
+            
             guard let seeAllViewController = segue.destination as? SeeAllViewController else { return }
             seeAllViewController.seeAllMovies = nowPlayingMovies
             seeAllViewController.title = "Now Playing"
             
         } else if segue.identifier == "upcomingSeeAll" {
+            
             guard let seeAllViewController = segue.destination as? SeeAllViewController else { return }
             seeAllViewController.seeAllMovies = upcomingMovies
             seeAllViewController.title = "Upcoming Movies"
         }
-        
     }
 }

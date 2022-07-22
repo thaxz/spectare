@@ -7,9 +7,13 @@
 
 import UIKit
 
+// MARK: - Implementing protocol Delegate of collection view
+
 extension FeaturedViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        // Switching results according to each collection view
         
         let movie: Movie
         
